@@ -5,7 +5,7 @@ local highlights = require "custom.highlights"
 
 M.ui = {
   transparency = true,
-  theme = "yoru",
+  theme = "bearded-arc",
   nvdash = {
     load_on_startup = true,
   },

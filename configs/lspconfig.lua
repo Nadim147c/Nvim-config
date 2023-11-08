@@ -4,7 +4,7 @@ local capabilities = config.capabilities
 
 local lspconfig = require "lspconfig"
 
-local servers = { "pyright", "powershell_es", "eslint" }
+local servers = { "pyright", "powershell_es", "eslint", "jsonls", "clangd", "yamlls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

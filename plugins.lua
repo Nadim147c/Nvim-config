@@ -20,6 +20,7 @@ local plugins = {
       end
     end,
   },
+
   {
     "mfussenegger/nvim-dap",
     config = function()
@@ -27,20 +28,31 @@ local plugins = {
       require("core.utils").load_mappings "dap"
     end,
   },
+
   {
-    "mhartington/formatter.nvim",
+    "nvimtools/none-ls.nvim",
     event = "VeryLazy",
     opts = function()
-      return require "custom.configs.formatter"
+      return require "custom.configs.none-ls"
     end,
   },
-  {
-    "mfussenegger/nvim-lint",
-    event = "VeryLazy",
-    config = function()
-      require "custom.configs.lint"
-    end,
-  },
+
+  -- {
+  --   "mhartington/formatter.nvim",
+  --   event = "VeryLazy",
+  --   opts = function()
+  --     return require "custom.configs.formatter"
+  --   end,
+  -- },
+  --
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require "custom.configs.lint"
+  --   end,
+  -- },
+
   {
     "williamboman/mason.nvim",
     opts = {
@@ -54,6 +66,9 @@ local plugins = {
         "powershell-editor-services",
         "stylua",
         "lua-language-server",
+        "json-lsp",
+        "clang",
+        "yaml-language-server",
       },
     },
   },
@@ -88,11 +103,9 @@ local plugins = {
     name = "barbecue",
     version = "*",
     event = "VeryLazy",
-    dependencies = {
-      "SmiteshP/nvim-navic",
-    },
+    dependencies = { "SmiteshP/nvim-navic" },
     opts = function()
-      return require("barbecue").setup()
+      return require("barbecue").setup {}
     end,
   },
 
@@ -113,9 +126,10 @@ local plugins = {
   },
 
   {
-    "antonk52/markdowny.nvim",
+    "jiriks74/presence.nvim",
+    lazy = false,
     config = function()
-      require("markdowny").setup()
+      require "custom.configs.discord"
     end,
   },
 

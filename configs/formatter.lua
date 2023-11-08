@@ -9,6 +9,9 @@ local M = {
     markdown = {
       require("formatter.filetypes.markdown").prettier,
     },
+    yaml = {
+      require("formatter.filetypes.yaml").prettier,
+    },
     -- Not working with formatter.nvim
     -- json = {
     --   require("formatter.filetypes.json").prettier,
