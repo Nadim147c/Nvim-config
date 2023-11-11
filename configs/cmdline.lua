@@ -15,11 +15,7 @@ local mapping = {
     else
       fallback()
     end
-  end, {
-    "i",
-    "s",
-    "c",
-  }),
+  end, { "i", "s", "c" }),
 
   ["<S-Tab>"] = cmp.mapping(function(fallback)
     if cmp.visible() then
@@ -27,18 +23,12 @@ local mapping = {
     else
       fallback()
     end
-  end, {
-    "i",
-    "s",
-    "c",
-  }),
+  end, { "i", "s", "c" }),
 }
 
 cmp.setup.cmdline("/", {
   mapping = mapping,
-  sources = {
-    { name = "buffer" },
-  },
+  sources = { { name = "buffer" } },
 })
 
 cmp.setup.cmdline(":", {
@@ -48,9 +38,7 @@ cmp.setup.cmdline(":", {
   }, {
     {
       name = "cmdline",
-      option = {
-        ignore_cmds = { "Man", "!" },
-      },
+      option = { ignore_cmds = { "Man", "!" } },
     },
   }),
 })

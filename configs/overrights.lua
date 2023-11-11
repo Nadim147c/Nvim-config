@@ -16,9 +16,41 @@ M.treesitter = {
   },
   indent = {
     enable = true,
-    disable = {
-      "python",
-    },
+    disable = { "python" },
+  },
+}
+
+M.mason = {
+  ensure_installed = {
+    "mypy",
+    "ruff",
+    "black",
+    "pyright",
+    "eslint-lsp",
+    "js-debug-adapter",
+    "prettier",
+    "typescript-language-server",
+    "powershell-editor-services",
+    "stylua",
+    "lua-language-server",
+    "json-lsp",
+    "clang",
+    "yaml-language-server",
+  },
+}
+
+M.nvimtree = {
+  git = {
+    enable = true,
+  },
+
+  renderer = {
+    highlight_git = true,
+    -- icons = {
+    --   show = {
+    --     git = true,
+    --   },
+    -- },
   },
 }
 

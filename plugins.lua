@@ -20,7 +20,6 @@ local plugins = {
       end
     end,
   },
-
   {
     "mfussenegger/nvim-dap",
     config = function()
@@ -53,31 +52,19 @@ local plugins = {
   --   end,
   -- },
 
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "pyright",
-        "eslint-lsp",
-        "js-debug-adapter",
-        "prettier",
-        "typescript-language-server",
-        "black",
-        "powershell-editor-services",
-        "stylua",
-        "lua-language-server",
-        "json-lsp",
-        "clang",
-        "yaml-language-server",
-      },
-    },
-  },
+  -- {
+  --   "hrsh7th/cmp-cmdline",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require "custom.configs.cmdline"
+  --   end,
+  -- },
 
   {
-    "hrsh7th/cmp-cmdline",
-    event = "VeryLazy",
+    "gelguy/wilder.nvim",
+    lazy = false,
     config = function()
-      require "custom.configs.cmdline"
+      require "custom.configs.wilder"
     end,
   },
 
@@ -134,6 +121,16 @@ local plugins = {
   },
 
   -- overrides
+  {
+    "williamboman/mason.nvim",
+    opts = overrides.mason,
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
+  },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
