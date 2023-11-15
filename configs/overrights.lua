@@ -35,6 +35,8 @@ M.mason = {
     "lua-language-server",
     "json-lsp",
     "clang",
+    "css-lsp",
+    "html-lsp",
     "yaml-language-server",
   },
 }
