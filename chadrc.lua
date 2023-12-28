@@ -4,7 +4,7 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  transparency = false,
+  transparency = true,
   theme = "catppuccin",
   nvdash = {
     load_on_startup = true,
