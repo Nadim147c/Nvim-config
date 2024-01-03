@@ -22,8 +22,6 @@ M.treesitter = {
 
 M.mason = {
   ensure_installed = {
-    "mypy",
-    "ruff",
     "black",
     "pyright",
     "eslint-lsp",

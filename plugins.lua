@@ -36,30 +36,6 @@ local plugins = {
     end,
   },
 
-  -- {
-  --   "mhartington/formatter.nvim",
-  --   event = "VeryLazy",
-  --   opts = function()
-  --     return require "custom.configs.formatter"
-  --   end,
-  -- },
-  --
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require "custom.configs.lint"
-  --   end,
-  -- },
-
-  -- {
-  --   "hrsh7th/cmp-cmdline",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require "custom.configs.cmdline"
-  --   end,
-  -- },
-
   {
     "gelguy/wilder.nvim",
     lazy = false,
@@ -82,17 +58,6 @@ local plugins = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
-    end,
-  },
-
-  {
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    version = "*",
-    event = "VeryLazy",
-    dependencies = { "SmiteshP/nvim-navic" },
-    opts = function()
-      return require("barbecue").setup {}
     end,
   },
 
