@@ -14,6 +14,8 @@ for _, lsp in ipairs(servers) do
 end
 
 lspconfig.powershell_es.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
   filetypes = { "ps1" },
   bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services",
   settings = { powershell = { codeFormatting = { Preset = "OTBS" } } },

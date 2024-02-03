@@ -26,6 +26,7 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 --   end,
 -- })
 
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -42,7 +43,7 @@ vim.opt.spell = true
 
 vim.opt.smartindent = true
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false

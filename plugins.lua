@@ -20,11 +20,32 @@ local plugins = {
       end
     end,
   },
+
   {
     "mfussenegger/nvim-dap",
     config = function()
       require "custom.configs.dap"
       require("core.utils").load_mappings "dap"
+    end,
+  },
+
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = function()
+      require "custom.configs.noice"
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
+
+  {
+    "hrsh7th/cmp-cmdline",
+    event = "VeryLazy",
+    config = function()
+      require "custom.configs.cmdline"
     end,
   },
 
@@ -36,13 +57,13 @@ local plugins = {
     end,
   },
 
-  {
-    "gelguy/wilder.nvim",
-    lazy = false,
-    config = function()
-      require "custom.configs.wilder"
-    end,
-  },
+  -- {
+  --   "gelguy/wilder.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require "custom.configs.wilder"
+  --   end,
+  -- },
 
   {
     "kylechui/nvim-surround",
