@@ -13,6 +13,20 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.emmet_language_server.setup {
+  filetypes = {
+    "css",
+    "eruby",
+    "html",
+    "javascriptreact",
+    "less",
+    "sass",
+    "scss",
+    "pug",
+    "typescriptreact",
+  },
+}
+
 lspconfig.powershell_es.setup {
   on_attach = on_attach,
   capabilities = capabilities,

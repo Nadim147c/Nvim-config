@@ -28,6 +28,7 @@ M.mason = {
     "js-debug-adapter",
     "prettierd",
     "typescript-language-server",
+    "emmet-language-server",
     "powershell-editor-services",
     "stylua",
     "lua-language-server",
