@@ -4,56 +4,63 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 
-local servers = { "html", "cssls", "pyright", "eslint", "jsonls", "clangd", "yamlls" }
+local lsp_zero = require "lsp-zero"
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
-end
+lsp_zero.on_attach(function(_, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps { buffer = bufnr }
+end)
 
-lspconfig.emmet_language_server.setup {
-  filetypes = {
-    "css",
-    "eruby",
-    "html",
-    "javascriptreact",
-    "less",
-    "sass",
-    "scss",
-    "pug",
-    "typescriptreact",
-  },
-}
+require("mason-lspconfig").setup {
+  ensure_installed = {},
+  handlers = {
+    function(server_name)
+      require("lspconfig")[server_name].setup {
+        on_attach = on_attach,
+        on_init = on_init,
+        capabilities = capabilities,
+      }
+    end,
 
-lspconfig.powershell_es.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-  filetypes = { "ps1" },
-  bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services",
-  settings = { powershell = { codeFormatting = { Preset = "OTBS" } } },
-}
+    emmet_language_server = function()
+      lspconfig.emmet_language_server.setup {
+        on_attach = on_attach,
+        on_init = on_init,
+        capabilities = capabilities,
+        filetypes = { "css", "eruby", "html", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
+      }
+    end,
 
-local function organize_imports()
-  local params = {
-    command = "_typescript.organizeImports",
-    arguments = { vim.api.nvim_buf_get_name(0) },
-  }
-  vim.lsp.buf.execute_command(params)
-end
+    powershell_es = function()
+      lspconfig.powershell_es.setup {
+        on_attach = on_attach,
+        on_init = on_init,
+        capabilities = capabilities,
+        filetypes = { "ps1" },
+        bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services",
+        settings = { powershell = { codeFormatting = { Preset = "OTBS" } } },
+      }
+    end,
 
-lspconfig.tsserver.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-  init_options = { preferences = { disableSuggestions = false } },
-  commands = {
-    OrganizeImports = {
-      organize_imports,
-      description = "Organize Imports",
-    },
+    tsserver = function()
+      local function organize_imports()
+        local params = {
+          command = "_typescript.organizeImports",
+          arguments = { vim.api.nvim_buf_get_name(0) },
+        }
+        vim.lsp.buf.execute_command(params)
+      end
+
+      lspconfig.tsserver.setup {
+        on_attach = on_attach,
+        on_init = on_init,
+        capabilities = capabilities,
+        init_options = { preferences = { disableSuggestions = false } },
+        commands = {
+          OrganizeImports = { organize_imports, description = "Organize Imports" },
+        },
+      }
+    end,
   },
 }

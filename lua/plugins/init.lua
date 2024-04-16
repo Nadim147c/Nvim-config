@@ -51,22 +51,18 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "black",
-        "pyright",
-        "eslint-lsp",
         "prettierd",
         "typescript-language-server",
-        "emmet-language-server",
-        "powershell-editor-services",
-        "stylua",
         "lua-language-server",
-        "json-lsp",
-        "clangd",
-        "css-lsp",
-        "html-lsp",
-        "yaml-language-server",
+        "stylua",
       },
     },
+  },
+  { "williamboman/mason-lspconfig.nvim", },
+
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v3.x",
   },
 
   {
@@ -74,16 +70,10 @@ return {
     opts = {
       prefer_git = true,
       ensure_installed = {
-        "vim",
         "lua",
-        "html",
-        "css",
         "javascript",
         "typescript",
-        "tsx",
-        "c",
         "markdown",
-        "markdown_inline",
       },
       indent = {
         enable = true,
