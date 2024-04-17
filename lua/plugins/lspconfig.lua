@@ -5,6 +5,6 @@ return {
         { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
     },
     config = function()
-        require "configs.lspconfig"
+        require "configs.lsp"
     end,
 }
