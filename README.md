@@ -1,2 +1,3 @@
-# starter
-Starter config for NvChad
+# Neovim config
+
+This configuration is based on nvchad plugin.
