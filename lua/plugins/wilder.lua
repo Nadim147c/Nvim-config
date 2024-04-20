@@ -6,6 +6,7 @@ return {
 
         wilder.setup {
             modes = { ":", "/", "?" },
+            previous_key = "<C-p>",
         }
 
         wilder.set_option(

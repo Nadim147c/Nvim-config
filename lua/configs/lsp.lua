@@ -4,12 +4,6 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 
-local lsp_zero = require "lsp-zero"
-
-lsp_zero.on_attach(function(_, bufnr)
-    lsp_zero.default_keymaps { buffer = bufnr }
-end)
-
 local function emmet_language_server()
     lspconfig.emmet_language_server.setup {
         on_attach = on_attach,
@@ -59,7 +53,7 @@ require("mason-lspconfig").setup {
     },
     handlers = {
         function(server_name)
-            require("lspconfig")[server_name].setup {
+            lspconfig[server_name].setup {
                 on_attach = on_attach,
                 on_init = on_init,
                 capabilities = capabilities,
