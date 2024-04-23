@@ -3,7 +3,9 @@ return {
     dependencies = { "kevinhwang91/promise-async", "nvim-treesitter/nvim-treesitter" },
     event = "BufRead",
     config = function()
-        require("ufo").setup {
+        local ufo = require "ufo"
+
+        ufo.setup {
             provider_selector = function(_, _, _)
                 return { "treesitter", "indent" }
             end,
