@@ -1,9 +1,22 @@
 return {
-    "neovim/nvim-lspconfig",
-    dependencies = {
+    {
         "williamboman/mason-lspconfig.nvim",
+        opts = {
+            ensure_installed = {
+                "typescript-language-server",
+                "lua-language-server",
+                "prettierd",
+                "stylua",
+            },
+        },
     },
-    config = function()
-        require "configs.lsp"
-    end,
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            "williamboman/mason.nvim",
+        },
+        config = function()
+            require "configs.lsp"
+        end,
+    },
 }
