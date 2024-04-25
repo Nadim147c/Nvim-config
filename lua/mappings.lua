@@ -10,3 +10,6 @@ map("i", "jk", "<ESC>")
 
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
+
+map("n", "J", "mzJ`z")
+map("x", "<leader>p", [["_dP]], { desc = "Put without losing current yank" })
