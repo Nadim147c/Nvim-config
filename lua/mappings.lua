@@ -2,14 +2,14 @@ require "nvchad.mappings"
 
 -- add yours here
 
-local map = vim.keymap.set
+vim.keymap.set({ "n", "v" }, ";", ":", { desc = "CMD enter command mode" })
 
-map({ "n", "v" }, ";", ":", { desc = "CMD enter command mode" })
+vim.keymap.set("i", "jk", "<ESC>")
 
-map("i", "jk", "<ESC>")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Put without losing current yank" })
 
-map("n", "J", "mzJ`z")
-map("x", "<leader>p", [["_dP]], { desc = "Put without losing current yank" })
+vim.keymap.set("n", "<leader>sr", ":%s/", { desc = "Search and replace for this buffer" })
