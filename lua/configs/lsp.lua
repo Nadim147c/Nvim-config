@@ -24,6 +24,15 @@ local function powershell_es()
     }
 end
 
+local function bashls()
+    lspconfig.bashls.setup {
+        on_attach = on_attach,
+        on_init = on_init,
+        capabilities = capabilities,
+        filetypes = { "bash", "sh", "zsh" },
+    }
+end
+
 local function tsserver()
     local function organize_imports()
         local params = {
@@ -62,6 +71,7 @@ require("mason-lspconfig").setup {
 
         emmet_language_server = emmet_language_server,
         powershell_es = powershell_es,
+        bashls = bashls,
         tsserver = tsserver,
     },
 }
