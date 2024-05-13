@@ -33,6 +33,20 @@ local function bashls()
     }
 end
 
+local function lua_ls()
+    lspconfig.lua_ls.setup {
+        on_attach = on_attach,
+        on_init = on_init,
+        capabilities = capabilities,
+        settings = {
+            Lua = {
+                -- diagnostics = { disable = { 'missing-fields' } },
+                completion = { callSnippet = "Replace" },
+            },
+        },
+    }
+end
+
 local function tsserver()
     local function organize_imports()
         local params = {
@@ -73,5 +87,6 @@ require("mason-lspconfig").setup {
         powershell_es = powershell_es,
         bashls = bashls,
         tsserver = tsserver,
+        lua_ls = lua_ls,
     },
 }
