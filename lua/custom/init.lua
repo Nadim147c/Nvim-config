@@ -1,5 +1,5 @@
-local current_file_path = vim.fn.expand "%:p:h"
-local match = vim.split(vim.fn.glob(current_file_path .. "/lua/custom/*"), "\n", { trimempty = true })
+local nvim_config_dir = vim.api.nvim_call_function("stdpath", { "config" })
+local match = vim.split(vim.fn.glob(nvim_config_dir .. "/lua/custom/*"), "\n", { trimempty = true })
 for _, filename in ipairs(match) do
     if
         not vim.endswith(filename, "init.lua")
